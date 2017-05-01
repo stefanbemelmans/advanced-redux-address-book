@@ -4,6 +4,9 @@ function users(state=[],action){
   return state;
 }
 function currentUser(state={},action){
+  if(action.type === "SET_CURRENT_USER"){
+    return action.value;
+  }
   return state;
 }
 function searchText(state="",action){
