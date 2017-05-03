@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {chooseUser} from "../actions";
 
 class ListOfUsers extends Component {
   constructor(){
@@ -11,13 +12,16 @@ class ListOfUsers extends Component {
     var userDivs = "";
     if(this.state.visible){
       buttonText = "Hide";
-      userDivs = this.props.users.map((user) => {
+      const filterUsers = this.props.users.filter((u) => {
+        return u.first_name.indexOf(this.props.searchText) > -1;
+      });
+      userDivs = filterUsers.map((user) => {
         return <div>
             {user.first_name} - {user.last_name}
             <a href="#" onClick={
               (e)=>{
                 e.preventDefault();
-                this.props.chooseUser(user);
+                this.props.setUser(user);
               }
             }> View </a>
         </div>
@@ -27,11 +31,7 @@ class ListOfUsers extends Component {
       userDivs = "";
     }
     return (<div>
-            <input onChange={
-              (e) => {
-                  this.props.filterUsers(e.target.value)
-              }
-            } />
+
             <button onClick={()=>{
                 this.setState({
                   visible:!this.state.visible
@@ -46,7 +46,15 @@ class ListOfUsers extends Component {
 }
 function mapStateToProps(state){
   return {
-    users:state.users
+    users: state.users,
+    searchText: state.searchText
   }
 }
-export default connect(mapStateToProps)(ListOfUsers);
+function mapDispatchToProps(dispatch){
+  return {
+    setUser:function(user){
+      dispatch(chooseUser(user));
+    }
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ListOfUsers);
