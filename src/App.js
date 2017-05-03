@@ -7,11 +7,8 @@ import ListOfUsers from './components/ListOfUsers';
 function App (props){
     return (
       <div>
-        <ListOfUsers 
-        filterUsers={props.filterUsers}
-        chooseUser={props.chooseUser} 
-        users={props.users} />
-        <UserDetail user={props.user} />
+        <ListOfUsers />
+        <UserDetail />
       </div>
     );
 }

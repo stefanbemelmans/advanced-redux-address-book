@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {setCurrentUser} from "../actions"
 
 class ListOfUsers extends Component {
   constructor(){
@@ -50,11 +49,4 @@ function mapStateToProps(state){
     users:state.users
   }
 }
-function mapDispatchToProps(dispatch){
-  return {
-    chooseUser:function(user){
-      dispatch(setCurrentUser(user));
-    }
-  }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ListOfUsers);
+export default connect(mapStateToProps)(ListOfUsers);
