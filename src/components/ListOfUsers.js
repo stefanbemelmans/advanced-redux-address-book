@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {chooseUser} from "../actions";
 
 class ListOfUsers extends Component {
   constructor(){
@@ -44,17 +42,5 @@ class ListOfUsers extends Component {
           </div>)
   }
 }
-function mapStateToProps(state){
-  return {
-    users: state.users,
-    searchText: state.searchText
-  }
-}
-function mapDispatchToProps(dispatch){
-  return {
-    setUser:function(user){
-      dispatch(chooseUser(user));
-    }
-  }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ListOfUsers);
+
+export default (ListOfUsers);
