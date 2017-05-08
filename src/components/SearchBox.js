@@ -1,6 +1,4 @@
 import React from 'react';
-import {setSearchText} from "../actions";
-import {connect} from "react-redux";
 
 function SearchBox (props){
     return (
@@ -12,12 +10,6 @@ function SearchBox (props){
     );
 }
 
-function mapDispatchToProps(dispatch){
-  return {
-    setSearchText:function(txt){
-      dispatch(setSearchText(txt));
-    }
-  }
-}
-export default connect(null,mapDispatchToProps)(SearchBox);
+
+export default (SearchBox);
 
