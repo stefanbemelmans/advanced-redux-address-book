@@ -12,7 +12,7 @@ class ListOfUsers extends Component {
       buttonText = "Hide";
       userDivs = this.props.users.map((user) => {
         return <div>
-            {user.first_name} - {user.last_name}
+            {user.firstName} - {user.lastName}
             <a href="#" onClick={
               (e)=>{
                 e.preventDefault();

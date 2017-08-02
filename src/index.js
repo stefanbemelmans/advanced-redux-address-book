@@ -8,7 +8,7 @@ let filteredUsers = users;
 
 function filterUsers(name){
   filteredUsers = users.filter(function(u){
-    return u.first_name === name;
+    return u.firstName === name;
   });
   render();
 }

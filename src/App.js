@@ -10,7 +10,7 @@ function App (props){
         <ListOfUsers 
         filterUsers={props.filterUsers}
         chooseUser={props.chooseUser} 
-        users={props.users} />
+        users={props.users}/>
         <UserDetail user={props.user} />
       </div>
     );
