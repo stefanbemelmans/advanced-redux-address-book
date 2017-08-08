@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserInfo from './UserInfo';
 function UserDetail (props){
   var user = props.user;
+    if(!user)
     return (
        <div>
         <UserInfo user={user} />

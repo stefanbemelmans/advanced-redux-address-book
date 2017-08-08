@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { Provider } from 'react-redux';
 import './index.css';
 import users from './users';
-var currentUser  = null;
-let filteredUsers = users;
+import store from './store';
 
-function filterUsers(name){
-  filteredUsers = users.filter(function(u){
-    return u.firstName === name;
-  });
-  render();
-}
+var currentUser  = null;
+// let filteredUsers = users;
+
+// function filterUsers(name){
+//   filteredUsers = users.filter(function(u){
+//     return u.firstName === name;
+//   });
+//   render();
+// }
 function chooseUser(user){
   currentUser = user;
   render();
@@ -19,11 +22,7 @@ function chooseUser(user){
 
 function render(){
   ReactDOM.render(
-    <App 
-    filterUsers={filterUsers}
-    user={currentUser} 
-    users={filteredUsers} 
-    chooseUser={chooseUser}/>,
+    <Provider store={store}><App /></Provider>,
     document.getElementById('root')
   );
 }
