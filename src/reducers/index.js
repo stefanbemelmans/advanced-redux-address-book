@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-
+//setting defaults
 function users(state = [], action){
   return state;
 

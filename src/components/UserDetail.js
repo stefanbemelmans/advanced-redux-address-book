@@ -3,11 +3,13 @@ import UserInfo from './UserInfo';
 import { connect } from 'react-redux';
 function UserDetail (props){
   var user = props.user;
-    if(!user)
+    if(!user){
+      return <div></div>
+    }
     return (
        <div>
-        <UserInfo user={user} />
-        <img src={user.avatar} />
+        <UserInfo user={user}/>
+         <img src={user.avatar} /> 
       </div>
     );
 }
