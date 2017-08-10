@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {changeCurrentUser} from "../actions";
 
 class ListOfUsers extends Component {
   constructor(){
@@ -52,5 +53,14 @@ function mapStateToProps(state){
   }
 }
 
-const ListOfUsersContainer = connect(mapStateToProps)(ListOfUsers);
+function mapDispatchToProps(dispatch){
+  return{
+    chooseUser: function(user){
+      console.log(user);
+      dispatch(changeCurrentUser(user));
+    }
+  }
+}
+
+const ListOfUsersContainer = connect(mapStateToProps,mapDispatchToProps)(ListOfUsers);
  export default ListOfUsersContainer;

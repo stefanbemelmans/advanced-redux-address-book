@@ -6,11 +6,15 @@ function users(state = [], action){
 }
 
 function searchText(state = "", action){
+  
   return state;
     
   }
   
 function currentUser(state = {}, action){
+  if(action.type==="CHANGE_CURRENT_USER"){
+    return action.value;
+  }
   return state;
     
   }
