@@ -5,3 +5,9 @@ export function changeCurrentUser(user){
   }
 }
 
+export function filterUser(user){
+  return {
+    type:"FILTER_USER",
+    value:user
+  }
+}

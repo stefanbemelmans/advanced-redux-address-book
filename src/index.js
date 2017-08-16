@@ -7,14 +7,14 @@ import users from './users';
 import store from './store';
 
 var currentUser  = null;
-// let filteredUsers = users;
+let filteredUsers = users;
 
-// function filterUsers(name){
-//   filteredUsers = users.filter(function(u){
-//     return u.firstName === name;
-//   });
-//   render();
-// }
+function filterUsers(name){
+  filteredUsers = users.filter(function(u){
+    return u.firstName === name;
+  });
+  render();
+}
 function chooseUser(user){
   currentUser = user;
   render();

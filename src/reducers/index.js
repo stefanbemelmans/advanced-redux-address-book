@@ -1,12 +1,15 @@
 import {combineReducers} from 'redux';
 //setting defaults
+
 function users(state = [], action){
   return state;
 
 }
 
-function searchText(state = "", action){
-  
+function filterUser(state = "", action){
+  if(action.type==="FILTER_USER"){
+    return action.value;
+  }
   return state;
     
   }
@@ -19,5 +22,5 @@ function currentUser(state = {}, action){
     
   }
   
-const rootReducer = combineReducers({users, searchText, currentUser});
+const rootReducer = combineReducers({users, filterUser, currentUser});
 export default rootReducer;
